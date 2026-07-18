@@ -15,19 +15,28 @@ import {
   Palette, Layout, Pen,
 } from 'lucide-react';
 
+/* ─── Brand Icon Helper ──────────────────────────────────────── */
+const BrandIcon = ({ name, type = 'original' }: { name: string; type?: string }) => (
+  <img 
+    src={`https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${name}/${name}-${type}.svg`} 
+    alt={name} 
+    style={{ width: '1em', height: '1em', objectFit: 'contain' }} 
+  />
+);
+
 /* ─── Icon Map ─────────────────────────────────────────────── */
 const iconMap: Record<string, ReactNode> = {
   // Programming
-  js:         <FaJs />,
-  python:     <FaPython />,
-  php:        <FaPhp />,
-  csharp:     <Hash />,
-  rust:       <FaRust />,
-  react:      <FaReact />,
-  nextjs:     <SiNextdotjs />,
-  sql:        <FaDatabase />,
-  supabase:   <SiSupabase />,
-  git:        <FaGitAlt />,
+  js:         <BrandIcon name="javascript" />,
+  python:     <BrandIcon name="python" />,
+  php:        <BrandIcon name="php" />,
+  csharp:     <BrandIcon name="csharp" />,
+  rust:       <BrandIcon name="rust" type="plain" />,
+  react:      <BrandIcon name="react" />,
+  nextjs:     <BrandIcon name="nextjs" />,
+  sql:        <BrandIcon name="postgresql" />,
+  supabase:   <BrandIcon name="supabase" />,
+  git:        <BrandIcon name="git" />,
   api:        <FaServer />,
   // Soft
   communicate:<MessageSquare />,
@@ -43,7 +52,7 @@ const iconMap: Record<string, ReactNode> = {
   // Specialized
   cyber:      <Shield />,
   cloud:      <SiVercel />,
-  firebase:   <SiFirebase />,
+  firebase:   <BrandIcon name="firebase" type="plain" />,
   data:       <BarChart3 />,
   // Languages
   arabic:     <Languages />,
@@ -160,7 +169,7 @@ function SkillChip({
 
       <div className="relative z-10 flex items-center gap-2.5">
         {icon && (
-          <span className={`text-base transition-colors duration-300 ${hovered ? c.tw : 'text-secondary/50'}`}>
+          <span className={`text-base transition-all duration-300 ${hovered ? c.tw + ' grayscale-0 opacity-100' : 'text-secondary/50 grayscale opacity-60'}`}>
             {icon}
           </span>
         )}
