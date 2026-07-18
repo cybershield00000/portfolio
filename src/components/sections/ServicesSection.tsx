@@ -43,16 +43,16 @@ export function ServicesSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className={`group relative flex cursor-pointer items-center justify-between border-b border-glass/30 py-8 md:py-12 transition-all duration-500 ${
+                className={`group relative flex cursor-pointer items-center justify-between border-b border-glass/30 py-6 md:py-12 transition-all duration-500 ${
                   isOtherHovered ? 'opacity-30 blur-[2px] scale-[0.98]' : 'opacity-100 scale-100'
                 }`}
                 data-magnetic
               >
-                <div className="flex items-center gap-6 md:gap-12 transition-transform duration-500 group-hover:translate-x-6">
-                  <span className="font-mono text-xl md:text-2xl text-accent/50 group-hover:text-accent transition-colors">
+                <div className="flex items-center gap-4 md:gap-12 transition-transform duration-500 group-hover:translate-x-6">
+                  <span className="font-mono text-lg md:text-2xl text-accent/50 group-hover:text-accent transition-colors">
                     0{i + 1}
                   </span>
-                  <h3 className="font-heading text-2xl md:text-4xl lg:text-5xl font-semibold text-primary transition-colors">
+                  <h3 className="font-heading text-xl sm:text-2xl md:text-4xl lg:text-5xl font-semibold text-primary transition-colors leading-snug">
                     {service}
                   </h3>
                 </div>

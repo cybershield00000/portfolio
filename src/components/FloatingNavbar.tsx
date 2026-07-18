@@ -32,7 +32,7 @@ export function FloatingNavbar({ activeSection, onNavigate }: FloatingNavbarProp
       transition={{ delay: 1, duration: 0.8, ease: [0.25, 0.4, 0.25, 1] }}
     >
       <motion.div
-        className="glass-navbar flex items-center gap-1 rounded-full px-2 py-2 md:gap-2 md:px-4"
+        className="glass-navbar flex items-center gap-0.5 rounded-full px-1.5 py-1.5 md:gap-2 md:px-4 md:py-2"
         data-magnetic
         whileHover={{ scale: 1.02 }}
         transition={{ type: 'spring', stiffness: 400, damping: 25 }}
@@ -41,7 +41,7 @@ export function FloatingNavbar({ activeSection, onNavigate }: FloatingNavbarProp
           <motion.button
             key={key}
             onClick={() => onNavigate(index)}
-            className={`relative rounded-full px-3 py-2 text-xs font-medium transition-all duration-300 md:px-5 md:text-sm ${
+            className={`relative rounded-full px-2 py-1.5 text-[10px] sm:px-3 sm:py-2 sm:text-xs font-medium transition-all duration-300 md:px-5 md:text-sm ${
               activeSection === index
                 ? 'text-white'
                 : 'text-secondary hover:text-primary'
@@ -62,10 +62,10 @@ export function FloatingNavbar({ activeSection, onNavigate }: FloatingNavbarProp
         ))}
 
         {/* Language Switcher */}
-        <div className="mx-1 h-6 w-px bg-glass/40" />
+        <div className="mx-1 h-5 w-px bg-glass/40 md:h-6" />
         <motion.button
           onClick={switchLanguage}
-          className="rounded-full bg-highlight/40 px-3 py-2 text-xs font-semibold text-primary transition-all hover:bg-accent hover:text-white md:px-4 md:text-sm"
+          className="rounded-full bg-highlight/40 px-2 py-1.5 text-[10px] sm:px-3 sm:py-2 sm:text-xs font-semibold text-primary transition-all hover:bg-accent hover:text-white md:px-4 md:text-sm"
           data-magnetic
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}

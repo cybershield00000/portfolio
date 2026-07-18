@@ -48,9 +48,9 @@ export function HeroSection() {
             </motion.p>
           </div>
           
-          <h1 className="font-heading text-6xl font-bold leading-[1.2] tracking-tight text-primary md:text-8xl lg:text-9xl">
+          <h1 className="font-heading text-5xl font-bold leading-[1.2] tracking-tight text-primary sm:text-6xl md:text-8xl lg:text-9xl">
             {title.split(' ').map((word: string, i: number) => (
-              <span key={i} className="inline-block overflow-hidden pb-2 me-4 md:me-6">
+              <span key={i} className="inline-block overflow-hidden pb-2 me-3 sm:me-4 md:me-6">
                 <motion.span
                   variants={wordVariants}
                   className="inline-block origin-top-left"
@@ -79,19 +79,19 @@ export function HeroSection() {
             </motion.p>
           </div>
           
-          <div className="overflow-hidden mt-10">
-            <motion.div variants={revealUp} className="flex flex-wrap gap-4 justify-center lg:justify-start">
+          <div className="overflow-hidden mt-10 w-full">
+            <motion.div variants={revealUp} className="flex flex-col sm:flex-row flex-wrap gap-4 justify-center lg:justify-start w-full">
               <a
                 href="#projects"
                 data-magnetic
-                className="glass-card rounded-full px-8 py-3 text-sm font-semibold text-primary transition-all hover:bg-highlight/60"
+                className="glass-card rounded-full px-8 py-3 text-sm font-semibold text-primary transition-all hover:bg-highlight/60 text-center w-full sm:w-auto"
               >
                 {t('cta_projects')}
               </a>
               <a
                 href="#contact"
                 data-magnetic
-                className="rounded-full border border-glass px-8 py-3 text-sm font-semibold text-primary transition-all hover:bg-highlight/30"
+                className="rounded-full border border-glass px-8 py-3 text-sm font-semibold text-primary transition-all hover:bg-highlight/30 text-center w-full sm:w-auto"
               >
                 {t('cta_contact')}
               </a>
@@ -99,7 +99,7 @@ export function HeroSection() {
                 href="/Anas_Helles_CV.png"
                 download="Anas_Helles_CV.png"
                 data-magnetic
-                className="rounded-full bg-primary px-8 py-3 text-sm font-semibold text-white transition-all hover:bg-primary/80"
+                className="rounded-full bg-primary px-8 py-3 text-sm font-semibold text-white transition-all hover:bg-primary/80 text-center w-full sm:w-auto"
               >
                 {t('cta_cv')}
               </a>
