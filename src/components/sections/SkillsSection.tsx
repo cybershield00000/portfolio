@@ -31,7 +31,7 @@ const iconMap: Record<string, ReactNode> = {
   python:     <BrandIcon name="python" />,
   php:        <BrandIcon name="php" />,
   csharp:     <BrandIcon name="csharp" />,
-  rust:       <BrandIcon name="rust" type="plain" />,
+  rust:       <BrandIcon name="rust" />,
   react:      <BrandIcon name="react" />,
   nextjs:     <BrandIcon name="nextjs" />,
   sql:        <BrandIcon name="postgresql" />,
