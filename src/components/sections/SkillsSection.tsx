@@ -242,7 +242,7 @@ function SideIcon({ iconKey, catKey }: { iconKey: string; catKey: string }) {
   return (
     <motion.div
       className="fixed left-0 top-1/2 pointer-events-none"
-      style={{ zIndex: 0 }}
+      style={{ zIndex: -10 }}
       initial={{ opacity: 0, x: '-100%', y: '-50%', scale: 0.8 }}
       animate={{ opacity: 1, x: '-50%', y: '-50%', scale: 1 }}
       exit={{ opacity: 0, x: '-100%', y: '-50%', scale: 0.8 }}
@@ -299,7 +299,7 @@ export function SkillsSection() {
   return (
     <section
       id="skills"
-      className="relative flex flex-col justify-center overflow-hidden py-32 transition-colors duration-700"
+      className="relative isolate flex flex-col justify-center overflow-hidden py-32 transition-colors duration-700"
       style={{ backgroundColor: activeBg }}
     >
       {/* ── Large side background icon ──────────────────────── */}
