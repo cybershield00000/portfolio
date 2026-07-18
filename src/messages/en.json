@@ -13,15 +13,7 @@
     "label": "Technical Arsenal",
     "title": "Expertise & Skills",
     "subtitle": "Technologies and tools I use to bring ideas to life with precision and performance.",
-    "experiencesTitle": "Work Services",
-    "experiences": {
-      "0": "Malware Analysis, Prevention & Security Enhancement",
-      "1": "Data Encryption & Protection",
-      "2": "Advanced Security Solutions",
-      "3": "Database Management",
-      "4": "Design (Images - UI - Posters)",
-      "5": "Building & Programming Effective Systems, Apps & Sites"
-    },
+
     "skillsList": {
       "0": "React.js",
       "1": "JavaScript",
@@ -94,24 +86,14 @@
   },
   "services": {
     "label": "What I Do",
-    "title": "Core Services",
+    "title": "Work Services",
     "items": {
-      "architecture": {
-        "title": "Full-Stack System Architecture",
-        "description": "End-to-end design and development of complex web systems — from database schema to deployment pipelines. I build systems that scale."
-      },
-      "database": {
-        "title": "Database Management & Design",
-        "description": "Expert modeling of relational databases, real-time subscriptions, row-level security policies, and data migration strategies."
-      },
-      "uiux": {
-        "title": "UI/UX Interactive Engineering",
-        "description": "Transforming static designs into living, breathing interfaces with micro-animations, advanced interactions, and pixel-perfect execution."
-      },
-      "cybersecurity": {
-        "title": "Cybersecurity Solutions & Consulting",
-        "description": "Vulnerability assessment, secure code auditing, data protection, and implementing advanced encryption standards to secure systems against attacks."
-      }
+      "0": "Malware Analysis, Prevention & Security Enhancement",
+      "1": "Data Encryption & Protection",
+      "2": "Advanced Security Solutions",
+      "3": "Database Management",
+      "4": "Design (Images - UI - Posters)",
+      "5": "Building & Programming Effective Systems, Apps & Sites"
     }
   },
   "projects": {

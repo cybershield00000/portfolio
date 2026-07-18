@@ -1,24 +1,19 @@
 'use client';
 
-import { motion, Variants } from 'framer-motion';
+import { useState } from 'react';
+import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
-
-const services = ['architecture', 'database', 'uiux', 'cybersecurity'];
-
-const fadeIn = (direction: 'left' | 'right'): Variants => ({
-  hidden: { opacity: 0, x: direction === 'left' ? -60 : 60 },
-  visible: {
-    opacity: 1, x: 0,
-    transition: { duration: 0.8, ease: [0.25, 0.4, 0.25, 1] }
-  }
-});
 
 export function ServicesSection() {
   const t = useTranslations('services');
+  const [hoveredExp, setHoveredExp] = useState<number | null>(null);
+
+  // 6 items based on the new messages
+  const servicesList = Array.from({ length: 6 }).map((_, i) => t(`items.${i}`));
 
   return (
-    <section className="flex min-h-screen flex-col items-center justify-center px-6 md:px-16 lg:px-24">
-      <div className="w-full max-w-5xl">
+    <section id="services" className="relative flex flex-col items-center justify-center py-32 px-6 md:px-16 lg:px-24 min-h-screen">
+      <div className="w-full max-w-6xl mx-auto">
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -31,37 +26,49 @@ export function ServicesSection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="font-heading text-4xl font-bold text-primary md:text-6xl"
+          className="font-heading text-4xl font-bold text-primary md:text-6xl mb-20"
         >
           {t('title')}
         </motion.h2>
 
-        <div className="mt-20 space-y-16">
-          {services.map((key, i) => (
-            <motion.div
-              key={key}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: '-50px' }}
-              variants={fadeIn(i % 2 === 0 ? 'left' : 'right')}
-              className="group flex items-start gap-8 border-b border-glass/30 pb-12"
-            >
-              <span className="font-heading text-5xl font-bold text-highlight md:text-7xl">
-                {String(i + 1).padStart(2, '0')}
-              </span>
-              <div className="flex-1">
-                <h3 className="font-heading text-2xl font-semibold text-primary md:text-3xl">
-                  <span className="relative">
-                    {t(`items.${key}.title`)}
-                    <span className="absolute -bottom-1 left-0 h-[2px] w-0 bg-accent transition-all duration-500 group-hover:w-full" />
+        <div className="flex flex-col border-t border-glass/30" onMouseLeave={() => setHoveredExp(null)}>
+          {servicesList.map((service, i) => {
+            const isHovered = hoveredExp === i;
+            const isOtherHovered = hoveredExp !== null && hoveredExp !== i;
+            return (
+              <motion.div
+                key={i}
+                onMouseEnter={() => setHoveredExp(i)}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className={`group relative flex cursor-pointer items-center justify-between border-b border-glass/30 py-8 md:py-12 transition-all duration-500 ${
+                  isOtherHovered ? 'opacity-30 blur-[2px] scale-[0.98]' : 'opacity-100 scale-100'
+                }`}
+                data-magnetic
+              >
+                <div className="flex items-center gap-6 md:gap-12 transition-transform duration-500 group-hover:translate-x-6">
+                  <span className="font-mono text-xl md:text-2xl text-accent/50 group-hover:text-accent transition-colors">
+                    0{i + 1}
                   </span>
-                </h3>
-                <p className="mt-4 max-w-xl text-base leading-relaxed text-secondary">
-                  {t(`items.${key}.description`)}
-                </p>
-              </div>
-            </motion.div>
-          ))}
+                  <h3 className="font-heading text-2xl md:text-4xl lg:text-5xl font-semibold text-primary transition-colors">
+                    {service}
+                  </h3>
+                </div>
+                <div className="hidden md:block overflow-hidden">
+                  <motion.div
+                    animate={{ x: isHovered ? 0 : -50, opacity: isHovered ? 1 : 0 }}
+                    transition={{ type: 'spring', stiffness: 200, damping: 20 }}
+                  >
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-accent">
+                      <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                  </motion.div>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>

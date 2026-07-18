@@ -282,13 +282,9 @@ function SideIcon({ iconKey, catKey }: { iconKey: string; catKey: string }) {
    ═══════════════════════════════════════════════════════════════ */
 export function SkillsSection() {
   const t = useTranslations('skills');
-  const [hoveredExp, setHoveredExp] = useState<number | null>(null);
   const [hovered, setHovered] = useState<{ iconKey: string; catKey: string } | null>(null);
 
   const activeBg = hovered ? categoryColors[hovered.catKey]?.bgCss : 'transparent';
-
-  /* Parse experiences */
-  const experiences = Array.from({ length: 6 }).map((_, i) => t(`experiences.${i}`));
 
   /* Parse categories */
   const categories = CATEGORY_ORDER.map((key) => ({
@@ -346,56 +342,7 @@ export function SkillsSection() {
         ))}
       </div>
 
-      {/* ── Experiences Accordion ───────────────────────────── */}
-      <div className="relative z-10 w-full max-w-6xl mx-auto px-6 md:px-16 lg:px-24 mb-32">
-        <motion.h3
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mb-12 font-heading text-3xl font-bold text-primary md:text-5xl"
-        >
-          {t('experiencesTitle')}
-        </motion.h3>
-        <div className="flex flex-col border-t border-glass/30" onMouseLeave={() => setHoveredExp(null)}>
-          {experiences.map((exp, i) => {
-            const isHovered = hoveredExp === i;
-            const isOtherHovered = hoveredExp !== null && hoveredExp !== i;
-            return (
-              <motion.div
-                key={i}
-                onMouseEnter={() => setHoveredExp(i)}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                className={`group relative flex cursor-pointer items-center justify-between border-b border-glass/30 py-8 md:py-12 transition-all duration-500 ${
-                  isOtherHovered ? 'opacity-30 blur-[2px] scale-[0.98]' : 'opacity-100 scale-100'
-                }`}
-                data-magnetic
-              >
-                <div className="flex items-center gap-6 md:gap-12 transition-transform duration-500 group-hover:translate-x-6">
-                  <span className="font-mono text-xl md:text-2xl text-accent/50 group-hover:text-accent transition-colors">
-                    0{i + 1}
-                  </span>
-                  <h3 className="font-heading text-2xl md:text-4xl lg:text-5xl font-semibold text-primary transition-colors">
-                    {exp}
-                  </h3>
-                </div>
-                <div className="hidden md:block overflow-hidden">
-                  <motion.div
-                    animate={{ x: isHovered ? 0 : -50, opacity: isHovered ? 1 : 0 }}
-                    transition={{ type: 'spring', stiffness: 200, damping: 20 }}
-                  >
-                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-accent">
-                      <path d="M5 12h14M12 5l7 7-7 7"/>
-                    </svg>
-                  </motion.div>
-                </div>
-              </motion.div>
-            );
-          })}
-        </div>
-      </div>
+
     </section>
   );
 }
