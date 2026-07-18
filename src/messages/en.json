@@ -1,0 +1,163 @@
+{
+  "hero": {
+    "greeting": "WELCOME",
+    "title": "Anas Helles",
+    "subtitle": "Cybersecurity Engineer & Digital Systems Developer for Data Analysis and Protection. I build tech solutions and solve complex problems.",
+    "role": "Full-Stack Developer • Cybersecurity Engineer",
+    "cta_projects": "View Projects",
+    "cta_contact": "Contact Me",
+    "cta_cv": "Download CV",
+    "portrait_alt": "Portrait of Anas Helles"
+  },
+  "skills": {
+    "label": "Technical Arsenal",
+    "title": "Expertise & Skills",
+    "subtitle": "Technologies and tools I use to bring ideas to life with precision and performance.",
+    "experiencesTitle": "Work Services",
+    "experiences": {
+      "0": "Malware Analysis, Prevention & Security Enhancement",
+      "1": "Data Encryption & Protection",
+      "2": "Advanced Security Solutions",
+      "3": "Database Management",
+      "4": "Design (Images - UI - Posters)",
+      "5": "Building & Programming Effective Systems, Apps & Sites"
+    },
+    "skillsList": {
+      "0": "React.js",
+      "1": "JavaScript",
+      "2": "Rust",
+      "3": "PHP",
+      "4": "Python",
+      "5": "C#"
+    },
+    "categories": {
+      "soft": {
+        "title": "Soft Skills",
+        "items": {
+          "0": { "name": "Effective Communication", "icon": "communicate" },
+          "1": { "name": "Problem Solving", "icon": "problem" },
+          "2": { "name": "Teamwork", "icon": "team" },
+          "3": { "name": "Flexibility & Adaptability", "icon": "flexible" },
+          "4": { "name": "Time Management", "icon": "time" }
+        }
+      },
+      "programming": {
+        "title": "Programming & Technical Skills",
+        "items": {
+          "0": { "name": "JavaScript", "icon": "js" },
+          "1": { "name": "Python", "icon": "python" },
+          "2": { "name": "PHP", "icon": "php" },
+          "3": { "name": "C#", "icon": "csharp" },
+          "4": { "name": "Rust", "icon": "rust" },
+          "5": { "name": "React.js", "icon": "react" },
+          "6": { "name": "Next.js", "icon": "nextjs" },
+          "7": { "name": "SQL / PostgreSQL", "icon": "sql" },
+          "8": { "name": "Supabase", "icon": "supabase" },
+          "9": { "name": "Git & GitHub", "icon": "git" },
+          "10": { "name": "API Development & Full-Stack", "icon": "api" }
+        }
+      },
+      "leadership": {
+        "title": "Leadership & Project Management",
+        "items": {
+          "0": { "name": "Strategic Planning", "icon": "strategy" },
+          "1": { "name": "Risk Management", "icon": "risk" },
+          "2": { "name": "Team Leadership", "icon": "lead" },
+          "3": { "name": "Negotiation", "icon": "negotiate" }
+        }
+      },
+      "specialized": {
+        "title": "Specialized Technical Skills",
+        "items": {
+          "0": { "name": "Cybersecurity (OWASP)", "icon": "cyber" },
+          "1": { "name": "Cloud Computing", "icon": "cloud" },
+          "2": { "name": "Firebase", "icon": "firebase" },
+          "3": { "name": "Data Analysis & Reporting", "icon": "data" }
+        }
+      },
+      "languages": {
+        "title": "Language Skills",
+        "items": {
+          "0": { "name": "Arabic (Native)", "icon": "arabic" },
+          "1": { "name": "English (Advanced)", "icon": "english" }
+        }
+      },
+      "design": {
+        "title": "Design",
+        "items": {
+          "0": { "name": "UI/UX Design", "icon": "uidesign" },
+          "1": { "name": "Graphic Design", "icon": "graphic" },
+          "2": { "name": "Poster & Image Design", "icon": "poster" }
+        }
+      }
+    }
+  },
+  "services": {
+    "label": "What I Do",
+    "title": "Core Services",
+    "items": {
+      "architecture": {
+        "title": "Full-Stack System Architecture",
+        "description": "End-to-end design and development of complex web systems — from database schema to deployment pipelines. I build systems that scale."
+      },
+      "database": {
+        "title": "Database Management & Design",
+        "description": "Expert modeling of relational databases, real-time subscriptions, row-level security policies, and data migration strategies."
+      },
+      "uiux": {
+        "title": "UI/UX Interactive Engineering",
+        "description": "Transforming static designs into living, breathing interfaces with micro-animations, advanced interactions, and pixel-perfect execution."
+      },
+      "cybersecurity": {
+        "title": "Cybersecurity Solutions & Consulting",
+        "description": "Vulnerability assessment, secure code auditing, data protection, and implementing advanced encryption standards to secure systems against attacks."
+      }
+    }
+  },
+  "projects": {
+    "label": "Selected Work",
+    "title": "Featured Projects",
+    "techStack": "TECH STACK",
+    "items": {
+      "snapGaza": {
+        "title": "Snap Gaza SaaS",
+        "short": "A massive full-stack data management system for charity distribution.",
+        "description": "Snap Gaza v2.0 is a comprehensive SaaS platform built for managing charity distribution operations at scale. It features a fully integrated Telegram Bot, complex multi-table database architecture, real-time dashboards, and automated reporting — serving thousands of families efficiently.",
+        "tech": "Next.js, Supabase, Telegram Bot API, PostgreSQL, Tailwind CSS"
+      },
+      "portfolio": {
+        "title": "This Portfolio",
+        "short": "The site you're viewing — built with advanced AI interaction & UI/UX.",
+        "description": "A premium portfolio website showcasing advanced web technologies including Liquid Glassmorphism design, magnetic cursor interactions, fisheye lens distortion effects, full-page Framer Motion scroll snapping, and full bilingual (EN/AR) support with RTL layout.",
+        "tech": "Next.js, Framer Motion, next-intl, Tailwind CSS, SVG Filters"
+      },
+      "eliteAcademy": {
+        "title": "Elite Academy",
+        "short": "A cybersecurity academy platform — supervised and managed by me.",
+        "description": "Elite Academy is an educational platform focused on cybersecurity training and skill development. As the supervisor, I oversee curriculum design, student management, and platform operations to deliver high-quality learning experiences.",
+        "tech": "Full-Stack Web Platform, LMS Integration, Student Management"
+      }
+    }
+  },
+  "contact": {
+    "label": "Let's Connect",
+    "title": "Get in Touch",
+    "subtitle": "Have a project in mind or just want to say hello? I'd love to hear from you.",
+    "form": {
+      "name": "Your Name",
+      "namePlaceholder": "John Doe",
+      "email": "Email Address",
+      "emailPlaceholder": "john@example.com",
+      "message": "Your Message",
+      "messagePlaceholder": "Tell me about your project...",
+      "submit": "Send Message"
+    }
+  },
+  "nav": {
+    "hero": "Home",
+    "skills": "Skills",
+    "services": "Services",
+    "projects": "Projects",
+    "contact": "Contact"
+  }
+}
