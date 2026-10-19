@@ -96,8 +96,8 @@ export function HeroSection() {
                 {t('cta_contact')}
               </a>
               <a
-                href="/Anas_Helles_CV.png"
-                download="Anas_Helles_CV.png"
+                href="/Anas_Helles_CV.pdf"
+                download="Anas_Helles_CV.pdf"
                 data-magnetic
                 className="rounded-full bg-primary px-8 py-3 text-sm font-semibold text-white transition-all hover:bg-primary/80 text-center w-full sm:w-auto"
               >
