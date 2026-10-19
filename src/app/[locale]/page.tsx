@@ -41,7 +41,7 @@ export default function HomePage() {
   }, []);
 
   return (
-    <div className="relative min-h-screen selection:bg-black selection:text-white">
+    <div className="relative min-h-screen selection:bg-black selection:text-white dark:selection:bg-white dark:selection:text-black">
       {/* Animated Mesh Gradient Background */}
       <div className="animated-mesh-bg fixed inset-0 z-0 pointer-events-none" />
 

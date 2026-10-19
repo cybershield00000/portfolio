@@ -148,7 +148,7 @@ function SkillChip({
 
   return (
     <motion.div
-      className="relative overflow-hidden rounded-2xl border border-glass/40 px-5 py-3.5 cursor-pointer select-none"
+      className="relative overflow-hidden rounded-2xl border border-glass/40 dark:border-white/10 dark:bg-white/[0.02] px-5 py-3.5 cursor-pointer select-none"
       onMouseEnter={() => { setHovered(true); onEnter(); }}
       onMouseLeave={() => { setHovered(false); onLeave(); }}
       whileHover={{ scale: 1.06, y: -3 }}
@@ -169,11 +169,11 @@ function SkillChip({
 
       <div className="relative z-10 flex items-center gap-2.5">
         {icon && (
-          <span className={`text-base transition-all duration-300 ${hovered ? c.tw + ' grayscale-0 opacity-100' : 'text-secondary/50 grayscale opacity-60'}`}>
+          <span className={`text-base transition-all duration-300 ${hovered ? c.tw + ' grayscale-0 opacity-100' : 'text-secondary/50 grayscale opacity-60 dark:opacity-80'}`}>
             {icon}
           </span>
         )}
-        <span className={`text-sm font-semibold whitespace-nowrap transition-colors duration-300 ${hovered ? 'text-primary' : 'text-primary/75'}`}>
+        <span className={`text-sm font-semibold whitespace-nowrap transition-colors duration-300 ${hovered ? 'text-primary' : 'text-primary/75 dark:text-gray-200'}`}>
           {name}
         </span>
       </div>

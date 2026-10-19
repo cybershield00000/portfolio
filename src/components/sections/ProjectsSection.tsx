@@ -69,7 +69,7 @@ const TiltCard = ({
         whileHover={{ scale: 1.01 }}
         className="glass-card overflow-hidden rounded-3xl transition-shadow hover:shadow-2xl flex flex-col lg:flex-row gap-8 p-6 lg:p-8 items-center"
       >
-        <div className="relative w-full lg:w-3/5 h-[240px] sm:h-[320px] md:h-[400px] overflow-hidden rounded-2xl bg-highlight/20 border border-glass/30 flex-shrink-0">
+        <div className="relative w-full lg:w-3/5 h-[240px] sm:h-[320px] md:h-[400px] overflow-hidden rounded-2xl bg-highlight/20 dark:bg-white/[0.03] border border-glass/30 dark:border-white/10 flex-shrink-0">
           {project.hasImage ? (
             <Image
               src={project.image}
@@ -79,13 +79,13 @@ const TiltCard = ({
               className="object-cover transition-transform duration-700 group-hover:scale-105"
             />
           ) : (
-            <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-highlight via-white to-accent/20">
+            <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-highlight via-white to-accent/20 dark:from-zinc-900 dark:via-zinc-800 dark:to-zinc-900">
               <span className="font-heading text-4xl font-bold text-accent">{'</>'}</span>
             </div>
           )}
           
           {/* Glossy Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100 mix-blend-overlay" />
+          <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-transparent dark:via-white/5 opacity-0 transition-opacity duration-500 group-hover:opacity-100 mix-blend-overlay" />
         </div>
         <div className="flex-1 flex flex-col justify-between text-start w-full py-2">
           <div>
@@ -103,7 +103,7 @@ const TiltCard = ({
             </h4>
             <div className="flex flex-wrap gap-2">
               {t(`items.${project.key}.tech`).split(', ').map((tech: string, i: number) => (
-                <span key={i} className="text-xs bg-highlight/50 border border-glass/40 text-primary px-3 py-1 rounded-full font-medium">
+                <span key={i} className="text-xs bg-highlight/50 dark:bg-white/[0.06] border border-glass/40 dark:border-white/10 text-primary px-3 py-1 rounded-full font-medium">
                   {tech}
                 </span>
               ))}
@@ -171,7 +171,7 @@ export function ProjectsSection() {
       <AnimatePresence>
         {selected && selectedProject && (
           <motion.div
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/20 p-6 backdrop-blur-sm"
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 dark:bg-black/80 p-6 backdrop-blur-md"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -184,7 +184,7 @@ export function ProjectsSection() {
             >
               <button
                 onClick={() => setSelected(null)}
-                className="absolute end-4 top-4 rounded-full bg-highlight/50 p-2 text-primary transition-colors hover:bg-accent hover:text-white"
+                className="absolute end-4 top-4 rounded-full bg-highlight/50 dark:bg-white/10 p-2 text-primary transition-colors hover:bg-accent hover:text-primary-foreground"
                 data-magnetic
               >
                 <X className="h-5 w-5" />

@@ -99,7 +99,7 @@ export function HeroSection() {
                 href="/Anas_Helles_CV.pdf"
                 download="Anas_Helles_CV.pdf"
                 data-magnetic
-                className="rounded-full bg-primary px-8 py-3 text-sm font-semibold text-white transition-all hover:bg-primary/80 text-center w-full sm:w-auto"
+                className="rounded-full bg-primary px-8 py-3 text-sm font-semibold text-primary-foreground transition-all hover:bg-primary/80 text-center w-full sm:w-auto"
               >
                 {t('cta_cv')}
               </a>
@@ -123,6 +123,8 @@ export function HeroSection() {
               }}
               style={{ perspective: 1000 }}
             >
+              {/* Subtle ambient studio glow behind portrait */}
+              <div className="absolute inset-4 rounded-full bg-gradient-to-tr from-white/10 to-white/5 dark:from-white/15 dark:to-slate-400/10 blur-2xl -z-10 opacity-70 pointer-events-none" />
               <Image
                 src="/images/portrait.png"
                 alt={t('portrait_alt')}
@@ -139,7 +141,7 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, duration: 0.8 }}
-            className="flex items-center gap-6 bg-glass/20 border border-glass/40 rounded-full px-6 py-3 backdrop-blur-md shadow-sm"
+            className="flex items-center gap-6 bg-glass/20 border border-glass/40 rounded-full px-6 py-3 backdrop-blur-md shadow-sm dark:bg-white/[0.04] dark:border-white/10"
           >
             <a 
               href="mailto:cybershield00000@gmail.com" 

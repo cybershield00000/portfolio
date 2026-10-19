@@ -1,9 +1,11 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { usePathname, useRouter } from '@/i18n/routing';
 import { useLocale } from 'next-intl';
+import { Sun, Moon } from 'lucide-react';
 
 interface FloatingNavbarProps {
   activeSection: number;
@@ -19,6 +21,29 @@ export function FloatingNavbar({ activeSection, onNavigate }: FloatingNavbarProp
 
   const currentLocale = useLocale();
   const otherLocale = currentLocale === 'en' ? 'ar' : 'en';
+
+  const [theme, setTheme] = useState<'light' | 'dark'>('dark');
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+    const isDark = document.documentElement.classList.contains('dark');
+    setTheme(isDark ? 'dark' : 'light');
+  }, []);
+
+  const toggleTheme = () => {
+    const nextTheme = theme === 'dark' ? 'light' : 'dark';
+    setTheme(nextTheme);
+    try {
+      localStorage.setItem('theme', nextTheme);
+    } catch (e) {}
+
+    if (nextTheme === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  };
 
   const switchLanguage = () => {
     router.replace(pathname, { locale: otherLocale });
@@ -43,7 +68,7 @@ export function FloatingNavbar({ activeSection, onNavigate }: FloatingNavbarProp
             onClick={() => onNavigate(index)}
             className={`relative rounded-full px-2 py-1.5 text-[10px] sm:px-3 sm:py-2 sm:text-xs font-medium transition-all duration-300 md:px-5 md:text-sm ${
               activeSection === index
-                ? 'text-white'
+                ? 'text-primary-foreground font-semibold'
                 : 'text-secondary hover:text-primary'
             }`}
             data-magnetic
@@ -61,11 +86,29 @@ export function FloatingNavbar({ activeSection, onNavigate }: FloatingNavbarProp
           </motion.button>
         ))}
 
-        {/* Language Switcher */}
         <div className="mx-1 h-5 w-px bg-glass/40 md:h-6" />
+
+        {/* Theme Toggle Button */}
+        <motion.button
+          onClick={toggleTheme}
+          className="rounded-full bg-highlight/40 p-1.5 text-primary transition-all hover:bg-accent hover:text-primary-foreground sm:p-2"
+          data-magnetic
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.95 }}
+          title={theme === 'dark' ? 'الوضع النهاري' : 'الوضع الليلي'}
+          aria-label="Toggle Theme"
+        >
+          {mounted && theme === 'dark' ? (
+            <Sun className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-amber-400" />
+          ) : (
+            <Moon className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+          )}
+        </motion.button>
+
+        {/* Language Switcher */}
         <motion.button
           onClick={switchLanguage}
-          className="rounded-full bg-highlight/40 px-2 py-1.5 text-[10px] sm:px-3 sm:py-2 sm:text-xs font-semibold text-primary transition-all hover:bg-accent hover:text-white md:px-4 md:text-sm"
+          className="rounded-full bg-highlight/40 px-2 py-1.5 text-[10px] sm:px-3 sm:py-2 sm:text-xs font-semibold text-primary transition-all hover:bg-accent hover:text-primary-foreground md:px-4 md:text-sm"
           data-magnetic
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}

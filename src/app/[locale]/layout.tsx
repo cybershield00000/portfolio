@@ -38,12 +38,28 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
     <html
       lang={locale}
       dir={dir}
-      className={`${playfair.variable} ${tajawal.variable} h-full antialiased`}
+      className={`${playfair.variable} ${tajawal.variable} dark h-full antialiased`}
       suppressHydrationWarning
     >
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              try {
+                var theme = localStorage.getItem('theme');
+                if (theme === 'light') {
+                  document.documentElement.classList.remove('dark');
+                } else {
+                  document.documentElement.classList.add('dark');
+                }
+              } catch (e) {}
+            `,
+          }}
+        />
+      </head>
       <body
-        className="min-h-full"
-        style={{ fontFamily: locale === 'ar' ? 'var(--font-body), sans-serif' : 'var(--font-body), sans-serif' }}
+        className="min-h-full bg-background text-foreground transition-colors duration-500"
+        style={{ fontFamily: 'var(--font-body), sans-serif' }}
       >
         <NextIntlClientProvider locale={locale} messages={messages}>
           {children}

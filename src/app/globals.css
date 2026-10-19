@@ -6,8 +6,8 @@
 
 /* ============================================
    PORTFOLIO DESIGN SYSTEM
-   Theme: Clean White Premium Editorial
-   Aesthetic: Liquid Glassmorphism
+   Theme: Studio Noir & Precision Glass
+   Aesthetic: Liquid Glassmorphism (Dark & Light)
    ============================================ */
 
 @theme inline {
@@ -17,22 +17,52 @@
   --font-mono: var(--font-geist-mono);
   --font-heading: var(--font-heading);
 
-  /* Custom Portfolio Colors */
-  --color-primary: #111111;
-  --color-secondary: #555555;
-  --color-accent: #888888;
-  --color-glass: rgba(200, 200, 200, 0.4);
-  --color-highlight: #EAEAEA;
-  --color-background: #ffffff;
-  --color-foreground: #111111;
+  /* Custom Portfolio Colors mapped to CSS variables */
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
+  --color-glass: var(--glass);
+  --color-highlight: var(--highlight);
 }
 
 :root {
   --background: #FFFFFF;
   --foreground: #111111;
+  --primary: #111111;
+  --primary-foreground: #FFFFFF;
+  --secondary: #555555;
+  --accent: #777777;
+  --glass: rgba(200, 200, 200, 0.4);
+  --highlight: #EAEAEA;
+  --card-bg: rgba(255, 255, 255, 0.45);
+  --card-hover-bg: rgba(255, 255, 255, 0.55);
+  --card-border: rgba(190, 168, 167, 0.25);
+  --card-hover-border: rgba(190, 168, 167, 0.4);
+  --navbar-bg: rgba(255, 255, 255, 0.35);
+  --navbar-border: rgba(190, 168, 167, 0.3);
+  --scrollbar-thumb: #BEA8A7;
   --font-heading: 'Playfair Display', serif;
   --font-body: 'Tajawal', sans-serif;
   --radius: 0.625rem;
+}
+
+.dark {
+  --background: #08080a;
+  --foreground: #f3f4f6;
+  --primary: #ffffff;
+  --primary-foreground: #08080a;
+  --secondary: #94a3b8;
+  --accent: #cbd5e1;
+  --glass: rgba(255, 255, 255, 0.1);
+  --highlight: #181820;
+  --card-bg: rgba(18, 18, 24, 0.65);
+  --card-hover-bg: rgba(26, 26, 36, 0.8);
+  --card-border: rgba(255, 255, 255, 0.08);
+  --card-hover-border: rgba(255, 255, 255, 0.2);
+  --navbar-bg: rgba(12, 12, 16, 0.75);
+  --navbar-border: rgba(255, 255, 255, 0.12);
+  --scrollbar-thumb: #333344;
 }
 
 /* ============================================
@@ -61,48 +91,80 @@
     radial-gradient(at 80% 100%, hsla(0,0%,90%,1) 0px, transparent 50%),
     radial-gradient(at 0% 0%, hsla(0,0%,98%,1) 0px, transparent 50%);
   animation: meshShift 20s ease-in-out infinite alternate;
+  transition: background-color 0.7s ease;
+}
+
+.dark .animated-mesh-bg {
+  background-color: #08080a;
+  background-image: 
+    radial-gradient(at 40% 20%, hsla(220,18%,13%,1) 0px, transparent 50%),
+    radial-gradient(at 80% 0%, hsla(250,16%,11%,1) 0px, transparent 50%),
+    radial-gradient(at 0% 50%, hsla(210,22%,12%,1) 0px, transparent 50%),
+    radial-gradient(at 80% 50%, hsla(240,15%,10%,1) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, hsla(220,16%,12%,1) 0px, transparent 50%),
+    radial-gradient(at 80% 100%, hsla(260,18%,9%,1) 0px, transparent 50%),
+    radial-gradient(at 0% 0%, hsla(210,14%,13%,1) 0px, transparent 50%);
 }
 
 /* ============================================
    GLASS CARD STYLES
    ============================================ */
 .glass-card {
-  background: rgba(255, 255, 255, 0.45);
+  background: var(--card-bg);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(190, 168, 167, 0.25);
+  border: 1px solid var(--card-border);
   box-shadow:
-    0 4px 24px rgba(190, 168, 167, 0.08),
-    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    0 4px 24px rgba(0, 0, 0, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  transition: all 0.3s ease;
+}
+
+.dark .glass-card {
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }
 
 .glass-card:hover {
-  background: rgba(255, 255, 255, 0.55);
-  border-color: rgba(190, 168, 167, 0.4);
+  background: var(--card-hover-bg);
+  border-color: var(--card-hover-border);
   box-shadow:
-    0 8px 40px rgba(190, 168, 167, 0.15),
-    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    0 8px 40px rgba(0, 0, 0, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+.dark .glass-card:hover {
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.7),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
 }
 
 /* ============================================
    GLASS NAVBAR
    ============================================ */
 .glass-navbar {
-  background: rgba(255, 255, 255, 0.35);
+  background: var(--navbar-bg);
   backdrop-filter: blur(40px) saturate(1.5);
   -webkit-backdrop-filter: blur(40px) saturate(1.5);
-  border: 1px solid rgba(190, 168, 167, 0.3);
+  border: 1px solid var(--navbar-border);
   box-shadow:
-    0 8px 32px rgba(190, 168, 167, 0.12),
-    0 0 0 1px rgba(255, 255, 255, 0.4) inset,
-    0 -1px 4px rgba(244, 216, 216, 0.3) inset;
+    0 8px 32px rgba(0, 0, 0, 0.08),
+    0 0 0 1px rgba(255, 255, 255, 0.4) inset;
+  transition: all 0.3s ease;
+}
+
+.dark .glass-navbar {
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.6),
+    0 0 0 1px rgba(255, 255, 255, 0.08) inset;
 }
 
 /* ============================================
    GLASS BORDER UTILITY
    ============================================ */
 .glass-border {
-  border: 1px solid rgba(190, 168, 167, 0.3);
+  border: 1px solid var(--card-border);
 }
 
 /* ============================================
@@ -123,7 +185,6 @@
 .scroll-container {
   height: 100vh;
   position: relative;
-  /* overflow handled by tailwind classes in the component */
 }
 
 /* ============================================
@@ -137,7 +198,7 @@
    CUSTOM SCROLLBAR
    ============================================ */
 ::-webkit-scrollbar {
-  width: 4px;
+  width: 5px;
 }
 
 ::-webkit-scrollbar-track {
@@ -145,8 +206,8 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #BEA8A7;
-  border-radius: 2px;
+  background: var(--scrollbar-thumb);
+  border-radius: 3px;
 }
 
 /* ============================================

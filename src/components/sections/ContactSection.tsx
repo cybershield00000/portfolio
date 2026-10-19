@@ -53,7 +53,7 @@ export function ContactSection() {
               name="name"
               required
               placeholder={t('form.namePlaceholder')}
-              className="w-full rounded-xl border border-glass/50 bg-white/30 px-5 py-3 text-primary backdrop-blur-sm placeholder:text-accent/60 focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20 transition-all"
+              className="w-full rounded-xl border border-glass/50 bg-white/30 px-5 py-3 text-primary backdrop-blur-sm placeholder:text-accent/60 focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20 transition-all dark:bg-white/5 dark:border-white/10 dark:text-white dark:placeholder:text-gray-500"
             />
           </div>
           <div>
@@ -66,7 +66,7 @@ export function ContactSection() {
               name="email"
               required
               placeholder={t('form.emailPlaceholder')}
-              className="w-full rounded-xl border border-glass/50 bg-white/30 px-5 py-3 text-primary backdrop-blur-sm placeholder:text-accent/60 focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20 transition-all"
+              className="w-full rounded-xl border border-glass/50 bg-white/30 px-5 py-3 text-primary backdrop-blur-sm placeholder:text-accent/60 focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20 transition-all dark:bg-white/5 dark:border-white/10 dark:text-white dark:placeholder:text-gray-500"
             />
           </div>
           <div>
@@ -79,13 +79,13 @@ export function ContactSection() {
               required
               rows={5}
               placeholder={t('form.messagePlaceholder')}
-              className="w-full resize-none rounded-xl border border-glass/50 bg-white/30 px-5 py-3 text-primary backdrop-blur-sm placeholder:text-accent/60 focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20 transition-all"
+              className="w-full resize-none rounded-xl border border-glass/50 bg-white/30 px-5 py-3 text-primary backdrop-blur-sm placeholder:text-accent/60 focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20 transition-all dark:bg-white/5 dark:border-white/10 dark:text-white dark:placeholder:text-gray-500"
             />
           </div>
           <motion.button
             type="submit"
             data-magnetic
-            className="inline-flex items-center gap-2 rounded-full bg-primary px-8 py-3 text-sm font-semibold text-white transition-all hover:bg-primary/80"
+            className="inline-flex items-center gap-2 rounded-full bg-primary px-8 py-3 text-sm font-semibold text-primary-foreground transition-all hover:bg-primary/80"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.97 }}
           >
@@ -94,7 +94,7 @@ export function ContactSection() {
           </motion.button>
         </motion.form>
 
-        <motion.div variants={fadeUp} className="mt-10 flex items-center gap-6 border-t border-glass/30 pt-8">
+        <motion.div variants={fadeUp} className="mt-10 flex items-center gap-6 border-t border-glass/30 dark:border-white/10 pt-8">
           <a href="#" data-magnetic className="text-secondary transition-colors hover:text-primary"><Globe className="h-5 w-5" /></a>
           <a href="#" data-magnetic className="text-secondary transition-colors hover:text-primary"><UserCircle className="h-5 w-5" /></a>
           <a href="#" data-magnetic className="text-secondary transition-colors hover:text-primary"><Mail className="h-5 w-5" /></a>
