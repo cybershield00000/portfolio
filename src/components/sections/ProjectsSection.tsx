@@ -20,7 +20,7 @@ const TiltCard = ({
 }: { 
   project: typeof projects[0]; 
   index: number;
-  t: any;
+  t: (key: string) => string;
   setSelected: (key: string) => void;
 }) => {
   const x = useMotionValue(0);

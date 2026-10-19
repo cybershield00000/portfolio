@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useSyncExternalStore } from 'react';
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { usePathname, useRouter } from '@/i18n/routing';
@@ -14,6 +14,24 @@ interface FloatingNavbarProps {
 
 const sections = ['hero', 'services', 'skills', 'projects', 'contact'] as const;
 
+function subscribeTheme(callback: () => void) {
+  const observer = new MutationObserver(callback);
+  observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+  window.addEventListener('storage', callback);
+  return () => {
+    observer.disconnect();
+    window.removeEventListener('storage', callback);
+  };
+}
+
+function getThemeSnapshot() {
+  return document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+}
+
+function getThemeServerSnapshot() {
+  return 'dark';
+}
+
 export function FloatingNavbar({ activeSection, onNavigate }: FloatingNavbarProps) {
   const t = useTranslations('nav');
   const pathname = usePathname();
@@ -22,26 +40,24 @@ export function FloatingNavbar({ activeSection, onNavigate }: FloatingNavbarProp
   const currentLocale = useLocale();
   const otherLocale = currentLocale === 'en' ? 'ar' : 'en';
 
-  const [theme, setTheme] = useState<'light' | 'dark'>('dark');
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-    const isDark = document.documentElement.classList.contains('dark');
-    setTheme(isDark ? 'dark' : 'light');
-  }, []);
+  const theme = useSyncExternalStore(subscribeTheme, getThemeSnapshot, getThemeServerSnapshot);
 
   const toggleTheme = () => {
-    const nextTheme = theme === 'dark' ? 'light' : 'dark';
-    setTheme(nextTheme);
-    try {
-      localStorage.setItem('theme', nextTheme);
-    } catch (e) {}
-
-    if (nextTheme === 'dark') {
-      document.documentElement.classList.add('dark');
-    } else {
+    const isDark = document.documentElement.classList.contains('dark');
+    if (isDark) {
       document.documentElement.classList.remove('dark');
+      try {
+        localStorage.setItem('theme', 'light');
+      } catch {
+        // ignore
+      }
+    } else {
+      document.documentElement.classList.add('dark');
+      try {
+        localStorage.setItem('theme', 'dark');
+      } catch {
+        // ignore
+      }
     }
   };
 
@@ -98,7 +114,7 @@ export function FloatingNavbar({ activeSection, onNavigate }: FloatingNavbarProp
           title={theme === 'dark' ? 'الوضع النهاري' : 'الوضع الليلي'}
           aria-label="Toggle Theme"
         >
-          {mounted && theme === 'dark' ? (
+          {theme === 'dark' ? (
             <Sun className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-amber-400" />
           ) : (
             <Moon className="h-3.5 w-3.5 sm:h-4 sm:w-4" />

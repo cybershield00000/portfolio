@@ -19,6 +19,7 @@ const tajawal = Tajawal({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://portfolio-anas1012.vercel.app'),
   title: 'Anas Helles — Full-Stack Developer & Cybersecurity',
   description:
     'Premium portfolio of Anas Helles — a Full-Stack Developer & Cybersecurity student crafting seamless digital experiences.',

@@ -9,9 +9,10 @@ import { ServicesSection } from '@/components/sections/ServicesSection';
 import { ProjectsSection } from '@/components/sections/ProjectsSection';
 import { ContactSection } from '@/components/sections/ContactSection';
 
+const sections = ['hero', 'services', 'skills', 'projects', 'contact'];
+
 export default function HomePage() {
   const [activeSection, setActiveSection] = useState(0);
-  const sections = ['hero', 'services', 'skills', 'projects', 'contact'];
 
   const handleNavClick = (index: number) => {
     setActiveSection(index);

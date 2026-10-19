@@ -3,14 +3,10 @@
 import { useState, ReactNode } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslations } from 'next-intl';
+import { FaServer } from 'react-icons/fa';
+import { SiVercel } from 'react-icons/si';
 import {
-  FaJs, FaPython, FaPhp, FaRust, FaReact, FaDatabase, FaGitAlt, FaServer,
-} from 'react-icons/fa';
-import {
-  SiNextdotjs, SiSupabase, SiVercel, SiFirebase,
-} from 'react-icons/si';
-import {
-  Globe, Ear, Clock, Zap, ShieldAlert, Users, BrainCircuit, Languages, Hash,
+  Globe, Clock, Users, BrainCircuit, Languages,
   MessageSquare, Shuffle, Target, AlertTriangle, Handshake, Shield, BarChart3,
   Palette, Layout, Pen,
 } from 'lucide-react';
