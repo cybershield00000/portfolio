@@ -109,30 +109,26 @@ export function HeroSection() {
 
         {/* Portrait with 3D Parallax hover & Social Highlights */}
         <div className="flex flex-col items-center gap-6 flex-shrink-0">
-          <div className="relative overflow-hidden rounded-3xl">
+          <div className="relative overflow-hidden">
             <motion.div
               initial={{ y: "100%" }}
               animate={{ y: 0 }}
               transition={{ duration: 1.2, ease: [0.76, 0, 0.24, 1], delay: 0.5 }}
-              className="relative h-[350px] w-[280px] md:h-[500px] md:w-[380px] lg:h-[600px] lg:w-[450px]"
+              className="relative h-[320px] w-[320px] md:h-[420px] md:w-[420px] lg:h-[500px] lg:w-[500px]"
               whileHover={{ 
                 scale: 1.05, 
                 rotateY: 5, 
                 rotateX: -5,
                 transition: { type: 'spring', stiffness: 200, damping: 20 }
               }}
-              style={{
-                maskImage: 'radial-gradient(ellipse 80% 80% at 50% 45%, black 50%, transparent 100%)',
-                WebkitMaskImage: 'radial-gradient(ellipse 80% 80% at 50% 45%, black 50%, transparent 100%)',
-                perspective: 1000
-              }}
+              style={{ perspective: 1000 }}
             >
               <Image
                 src="/images/portrait.png"
                 alt={t('portrait_alt')}
                 fill
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 380px, 450px"
-                className="object-cover object-top"
+                sizes="(max-width: 768px) 320px, (max-width: 1200px) 420px, 500px"
+                className="object-contain"
                 priority
               />
             </motion.div>
